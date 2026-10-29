@@ -1,10 +1,9 @@
 vis.events.subscribe(vis.events.FILE_SAVE_PRE, function(file, path)
   -- if file is unmodified, don't do anything extra
   if not file.modified then
-    return true
+    return
   end
 
-  -- file contents
   local buf = file:content(0, file.size)
   local modified_buf = string.gsub(buf, '[ \t]+\n', '\n')
 
